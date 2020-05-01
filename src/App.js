@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { hot } from 'react-hot-loader/root'
+import styled, {
+  createGlobalStyle,
+  ThemeProvider,
+} from 'styled-components/macro'
 
-function App() {
+import TickerList from './components/TickerList'
+import theme from './config/theme'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Main>
+          <TickerList />
+        </Main>
+      </ThemeProvider>
+    </>
+  )
 }
 
-export default App;
+const AppRoot = process.env.NODE_ENV === 'development' ? hot(App) : App
+
+export default AppRoot
+
+const Main = styled.main`
+  padding: 0 20px;
+`
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    overflow: hidden;
+  }
+  body {
+    background-color: ${props => props.theme.global.background};
+    color: ${props => props.theme.global.text};
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    margin: 0;
+  }
+`
