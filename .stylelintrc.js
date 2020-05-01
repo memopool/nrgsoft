@@ -8,7 +8,7 @@ module.exports = {
   ],
   rules: {
     'declaration-block-no-duplicate-properties': true,
-    'property-no-vendor-prefix': null,
-    'value-no-vendor-prefix': null,
+    'property-no-vendor-prefix': true,
+    'value-no-vendor-prefix': true,
   }
 }
