@@ -5,6 +5,7 @@ import styled, {
   ThemeProvider,
 } from 'styled-components/macro'
 
+import PostList from './components/PostList'
 import TickerList from './components/TickerList'
 import theme from './config/theme'
 
@@ -15,6 +16,7 @@ const App = () => {
         <GlobalStyle />
         <Main>
           <TickerList />
+          <PostList />
         </Main>
       </ThemeProvider>
     </>
