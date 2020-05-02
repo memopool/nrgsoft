@@ -2,18 +2,23 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const Link = ({ text }) => {
+const Link = ({ permalink, title }) => {
   return (
     <Conatiner>
-      <Anchor href="google.com" target="_blank" rel="noopener noreferrer">
-        {text}
+      <Anchor
+        href={`https://reddit.com${permalink}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {title}
       </Anchor>
     </Conatiner>
   )
 }
 
 Link.propTypes = {
-  text: PropTypes.string.isRequired,
+  permalink: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default Link

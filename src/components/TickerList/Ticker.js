@@ -1,20 +1,26 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { connect } from 'react-redux'
 import styled, { keyframes } from 'styled-components/macro'
 
-const Ticker = ({ data }) => {
+import { getPosts } from '../../store/actions'
+
+const Ticker = ({ subject, getPosts }) => {
   return (
     <Wrapper>
-      <Button>{data.link}</Button>
+      <Button onClick={() => getPosts(subject)}>{subject}</Button>
     </Wrapper>
   )
 }
 
 Ticker.propTypes = {
-  data: PropTypes.object.isRequired,
+  subject: PropTypes.string.isRequired,
+  getPosts: PropTypes.func.isRequired,
 }
 
-export default Ticker
+const mapDispatchToProps = { getPosts }
+
+export default connect(null, mapDispatchToProps)(Ticker)
 
 const crawling = tickerWidth => keyframes`
   0% {

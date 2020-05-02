@@ -7,7 +7,7 @@ import styled from 'styled-components/macro'
 import Button from './Button'
 import Link from './Link'
 
-const Post = ({ data }) => {
+const Post = ({ post }) => {
   return (
     <Container>
       <Button>
@@ -16,13 +16,13 @@ const Post = ({ data }) => {
       <Button>
         <IconRemove />
       </Button>
-      <Link text={data.text}></Link>
+      <Link title={post.title} permalink={post.permalink}></Link>
     </Container>
   )
 }
 
 Post.propTypes = {
-  data: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired,
 }
 
 export default Post

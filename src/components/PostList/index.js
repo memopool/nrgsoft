@@ -1,16 +1,26 @@
+import PropTypes from 'prop-types'
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components/macro'
 
-import { posts as data } from '../../config/data'
 import Post from './Post'
 
-const PostList = () => {
-  const posts = data.map(item => <Post key={item.id} data={item} />)
+const PostList = ({ data }) => {
+  const posts = data.map(item => <Post key={item.id} post={item} />)
 
-  return <Container>{posts}</Container>
+  if (posts.length) return <Container>{posts}</Container>
+  else return null
 }
 
-export default PostList
+PostList.propTypes = {
+  data: PropTypes.array.isRequired,
+}
+
+const mapStateToProps = state => ({
+  data: state.posts,
+})
+
+export default connect(mapStateToProps)(PostList)
 
 const Container = styled.section`
   border: 1px solid ${props => props.theme.highlight.weak};
