@@ -16,7 +16,7 @@ Button.propTypes = {
 
 export default Button
 
-const Container = styled.section`
+export const Container = styled.section`
   align-items: center;
   border-radius: 5px;
   color: ${props => props.theme.default.medium};

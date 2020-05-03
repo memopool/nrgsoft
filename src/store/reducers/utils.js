@@ -1,8 +1,3 @@
-import { STORAGE_KEY } from '../../config/data'
-
-export const saveToLocalStorage = data =>
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
-
 export const addArrayElement = (state, payload) => [...state, payload.post]
 
 export const updateArrayElement = (state, payload) => {

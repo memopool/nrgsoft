@@ -46,7 +46,7 @@ PostList.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  items: state.posts,
+  items: state.posts.present,
 })
 
 const mapDispatchToProps = { reorderPosts }

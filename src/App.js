@@ -7,6 +7,7 @@ import styled, {
 
 import PostList from './components/PostList'
 import TickerList from './components/TickerList'
+import UndoRedoBox from './components/UndoRedoBox'
 import theme from './config/theme'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <GlobalStyle />
         <Main>
           <TickerList />
+        <UndoRedoBox />
           <PostList />
         </Main>
       </ThemeProvider>
