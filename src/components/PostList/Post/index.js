@@ -16,7 +16,7 @@ const Post = ({ post, toggleLike, removePost }) => {
 
   return (
     <Container>
-      <Button onClick={handleLike} isLiked={post.isLiked}>
+      <Button onClick={handleLike}>
         {post.isLiked ? <Favorite /> : <FavoriteOutline />}
       </Button>
       <Button onClick={handleRemove}>

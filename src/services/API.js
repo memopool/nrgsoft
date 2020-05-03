@@ -1,4 +1,4 @@
-import { API_ROOT, CACHE_TIMEOUT } from '../config/data'
+import { API_ROOT, CACHE_TIMEOUT } from '../config/api'
 
 const getUrl = query => `${API_ROOT}${query}.json`
 

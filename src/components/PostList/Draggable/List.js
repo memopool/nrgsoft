@@ -1,9 +1,6 @@
-// AutoSizer wrapper is the reason of false postive console error
-// 〝provided.innerRef has not been provided with a HTMLElement〞
-
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
-import AutoSizer from 'react-virtualized-auto-sizer'
+import AutoSizer from 'react-virtualized/dist/es/AutoSizer'
 import { FixedSizeList } from 'react-window'
 
 const List = forwardRef(({ items, children }, ref) => {

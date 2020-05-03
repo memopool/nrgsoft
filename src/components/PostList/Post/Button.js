@@ -2,15 +2,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const Button = ({ children, isLiked, onClick }) => (
-  <Container onClick={onClick} isLiked={isLiked || null}>
-    {children}
-  </Container>
+const Button = ({ children, onClick }) => (
+  <Container onClick={onClick}>{children}</Container>
 )
 
 Button.propTypes = {
   children: PropTypes.element.isRequired,
-  isLiked: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 }
 

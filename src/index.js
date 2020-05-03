@@ -19,3 +19,7 @@ render(
 )
 
 serviceWorker.unregister()
+
+if (process.env.NODE_ENV === 'development') {
+  window['__react-beautiful-dnd-disable-dev-warnings'] = true
+}

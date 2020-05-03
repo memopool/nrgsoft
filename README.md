@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Тестовое задание. Список постов.
 
-## Available Scripts
+## Описание
+Требуется реализовать приложение загрузки случайных постов с помощью Reddit API.
 
-In the project directory, you can run:
+## Задача
+Всего есть 4 темы (subreddits):
+- frontend
+- reactjs
+- vuejs
+- angular
 
-### `yarn start`
+Для каждой из них есть бегущая строка с элементом содержащим название темы.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+При наведении на элемент, он останавливается и подсвечивается.
+При клике на элементе происходит запрос на сервер статей по данной теме.
+Затем в список добавляется один случайный пост.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Элемент списка содержит:
+- иконку like (меняется при клике)
+- иконку remove (удаляет пост)
+- ссылку на пост
 
-### `yarn test`
+Состояние приложения _должно восстанавливаться после перезагрузки страницы_.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Дополнительные пункты. Выберете _один или несколько_:
+- добавить в список статей возможность drag and drop чтобы была возможность их сортировать
+- API запросы должны кэшироваться. Кэш считается валидным в течение 2 минут для каждой темы или после перезагрузки страницы
+- реализовать виртуальный рендер списка с использованием react-virtualized или react-window
+- реализовать функциональность undo/redo
 
-### `yarn build`
+_(Как минимум должен быть выбран один любой дополнительный пункт или если у вас будет желание можете выбрать несколько. Мы предоставляем вам варианты чтобы разнообразить задание. Кроме того, мы оцениваем сложность выбранных заданий и ваш вариант их решений.)_
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Пример (gif 14mb)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![alt gif_ex](https://raw.githubusercontent.com/dsvgit/redux-test-middle/master/demo-middle.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Требования
+1. Все компоненты не должны иметь локального стейта.
+1. Состояние приложения полностью должно контролироваться redux стором.
+1. Все сайд эффекты должны быть написаны на redux-saga (например: запросы на сервер, интервалы, таймауты и все прочее что вам может понадобится)
+1. Проект должен быть развернут в сети интернет, любым удобным способом.
+1. А также должен быть предоставлен доступ к исходному коду.
 
-### `yarn eject`
+_(пункты выше про редакс и локальный стейт не относятся к анимации, реализация анимации на ваш выбор)_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Дополнительно
+- API можно посмотреть тут - https://codesandbox.io/s/72j28q2k50
+- Способ анимации на ваш выбор
+- Дизайн может быть взят из примера или разработан свой
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Оценка
+Оценивается
+- проектирование структуры стейта
+- понимание стека react/redux/saga
+- качество кода
+- время выполнения (не в ущерб качеству)
