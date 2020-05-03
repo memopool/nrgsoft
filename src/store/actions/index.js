@@ -5,8 +5,8 @@ export const POST_TOGGLE_LIKE = 'POST_TOGGLE_LIKE'
 export const POST_REMOVE = 'POST_REMOVE'
 export const POSTS_REORDER = 'POSTS_REORDER'
 
-export function getPosts(url) {
-  return { type: POSTS_GET, url }
+export function getPosts(query) {
+  return { type: POSTS_GET, query }
 }
 
 export function savePost(post) {

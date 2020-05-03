@@ -10,8 +10,10 @@ export const updateArrayElement = (state, payload) => {
     if (element.id === payload.id) {
       return { ...element, isLiked: !element.isLiked }
     }
+
     return element
   }
+
   return [...state.map(element => checkIfTarget(element))]
 }
 
