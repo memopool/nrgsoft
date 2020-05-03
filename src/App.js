@@ -12,16 +12,14 @@ import theme from './config/theme'
 
 const App = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Main>
-          <TickerList />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Main>
+        <TickerList />
         <UndoRedoBox />
-          <PostList />
-        </Main>
-      </ThemeProvider>
-    </>
+        <PostList />
+      </Main>
+    </ThemeProvider>
   )
 }
 
@@ -39,6 +37,24 @@ const Main = styled.main`
 `
 
 const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 0 5px 5px 0;
+    background-color: ${props => props.theme.highlight.weak}
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0 5px 5px 0;
+    background-color: ${props => props.theme.default.invisible}
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${props => props.theme.default.semivisible}
+  }
+
   html {
     max-width: 100%;
     overflow-x: hidden;

@@ -54,8 +54,9 @@ const mapDispatchToProps = { reorderPosts }
 export default connect(mapStateToProps, mapDispatchToProps)(PostList)
 
 const Container = styled.section`
-  border: 1px solid ${props => props.theme.highlight.weak};
+  background-color: ${props => props.theme.highlight.invisible};
   border-radius: 5px;
+  box-shadow: 0 0 0 1px ${props => props.theme.highlight.weak};
   height: 100%;
   margin: 10px 0 20px;
 `

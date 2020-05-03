@@ -22,12 +22,14 @@ const mapDispatchToProps = { getPosts }
 
 export default connect(null, mapDispatchToProps)(Ticker)
 
-const crawling = tickerWidth => keyframes`
+const TICKER_WIDTH = '160px'
+
+const crawling = keyframes`
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(calc(100% - ${tickerWidth}), 0, 0);
+    transform: translateX(calc(100% - ${TICKER_WIDTH}));
   }
 `
 
@@ -50,7 +52,7 @@ const Button = styled.button`
   transition: background-color 0.15s ease-in-out;
   user-select: none;
   white-space: nowrap;
-  width: ${props => props.theme.ticker.width};
+  width: ${TICKER_WIDTH};
   &:hover {
     background-color: ${props => props.theme.highlight.medium};
   }
@@ -60,8 +62,7 @@ const Button = styled.button`
 `
 
 const Wrapper = styled.div`
-  animation: 5s ${props => crawling(props.theme.ticker.width)} ease-in-out
-    infinite alternate;
+  animation: 5s ${crawling} ease-in-out infinite alternate;
   pointer-events: none;
   &:hover {
     animation-play-state: paused;
