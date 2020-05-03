@@ -18,3 +18,13 @@ export const updateArrayElement = (state, payload) => {
 export const removeArrayElement = (state, payload) => [
   ...state.filter(element => element.id !== payload.id),
 ]
+
+export const moveArrayElement = (state, payload) => {
+  const { startIndex, endIndex } = payload.indexes
+
+  const newState = Array.from(state)
+  const [movedElement] = newState.splice(startIndex, 1)
+  newState.splice(endIndex, 0, movedElement)
+
+  return newState
+}

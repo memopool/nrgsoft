@@ -32,7 +32,7 @@ const Anchor = styled.a`
   border-radius: 5px;
   color: ${props => props.theme.global.text};
   display: inline-block;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 40px;
   overflow: hidden;

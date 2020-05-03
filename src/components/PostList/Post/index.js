@@ -6,7 +6,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components/macro'
 
-import { removePost, toggleLike } from '../../store/actions'
+import { removePost, toggleLike } from '../../../store/actions'
 import Button from './Button'
 import Link from './Link'
 

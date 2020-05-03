@@ -45,11 +45,11 @@ const postsReducer = (state = initState, action) => {
       return newState
     }
 
-const postsReducer = (state = initState, action) => {
-  switch (action.type) {
-    case SAVE_POST:
-      saveToLocalStorage([...state, action.payload])
-      return [...state, action.payload]
+    case POSTS_REORDER: {
+      const newState = moveArrayElement(state, action)
+      saveToLocalStorage(newState)
+      return newState
+    }
 
     default:
       return state

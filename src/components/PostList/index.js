@@ -1,29 +1,61 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
 import styled from 'styled-components/macro'
 
-import Post from './Post'
+import { reorderPosts } from '../../store/actions'
+import List from './Draggable/List'
+import Row, { Item } from './Draggable/Row'
 
-const PostList = ({ data }) => {
-  const posts = data.map(item => <Post key={item.id} post={item} />)
+const PostList = ({ items, reorderPosts }) => {
+  const onDragEnd = result => {
+    if (!result.destination) return
+    if (result.source.index === result.destination.index) return
 
-  if (posts.length) return <Container>{posts}</Container>
-  else return null
+    reorderPosts({
+      startIndex: result.source.index,
+      endIndex: result.destination.index,
+    })
+  }
+
+  return (
+    <Container>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable
+          droppableId="droppable"
+          mode="virtual"
+          renderClone={(provided, snapshot, rubric) => (
+            <Item item={items[rubric.source.index]} provided={provided} />
+          )}
+        >
+          {droppableProvided => (
+            <List items={items} ref={droppableProvided.innerRef}>
+              {Row}
+            </List>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </Container>
+  )
 }
 
 PostList.propTypes = {
-  data: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
+  reorderPosts: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-  data: state.posts,
+  items: state.posts,
 })
 
-export default connect(mapStateToProps)(PostList)
+const mapDispatchToProps = { reorderPosts }
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostList)
 
 const Container = styled.section`
   border: 1px solid ${props => props.theme.highlight.weak};
   border-radius: 5px;
+  height: 100%;
   margin: 10px 0 20px;
 `
