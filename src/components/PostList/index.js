@@ -25,5 +25,5 @@ export default connect(mapStateToProps)(PostList)
 const Container = styled.section`
   border: 1px solid ${props => props.theme.highlight.weak};
   border-radius: 5px;
-  margin: 20px 0;
+  margin: 10px 0 20px;
 `

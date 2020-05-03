@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 
 const Link = ({ permalink, title }) => {
   return (
-    <Conatiner>
+    <Container>
       <Anchor
         href={`https://reddit.com${permalink}`}
         target="_blank"
@@ -12,7 +12,7 @@ const Link = ({ permalink, title }) => {
       >
         {title}
       </Anchor>
-    </Conatiner>
+    </Container>
   )
 }
 
@@ -23,7 +23,7 @@ Link.propTypes = {
 
 export default Link
 
-const Conatiner = styled.section`
+const Container = styled.section`
   display: grid;
 `
 

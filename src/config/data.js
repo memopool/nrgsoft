@@ -20,3 +20,5 @@ export const subreddits = [
     text: 'Angular',
   },
 ]
+
+export const STORAGE_KEY = 'redditPosts'

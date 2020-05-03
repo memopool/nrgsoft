@@ -2,17 +2,24 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const Button = ({ children }) => <Conatiner>{children}</Conatiner>
+const Button = ({ children, isLiked, onClick }) => (
+  <Container onClick={onClick} isLiked={isLiked || null}>
+    {children}
+  </Container>
+)
 
 Button.propTypes = {
   children: PropTypes.element.isRequired,
+  isLiked: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Button
 
-const Conatiner = styled.section`
+const Container = styled.section`
   align-items: center;
   border-radius: 5px;
+  color: ${props => props.theme.default.medium};
   cursor: pointer;
   display: flex;
   height: 40px;
