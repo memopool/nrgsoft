@@ -3,9 +3,10 @@ import SkipPrevious from '@vkontakte/icons/dist/28/skip_previous'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import styled from 'styled-components/macro'
+import { redo, undo } from 'undox'
 
+import { selectors } from '../../store/reducers/posts'
 import { Container as ButtonContainer } from '../PostList/Post/Button'
 
 const UndoRedoBox = ({ canUndo, canRedo, onUndo, onRedo }) => {
@@ -29,14 +30,14 @@ UndoRedoBox.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  canUndo: state.posts.past.length > 0,
-  canRedo: state.posts.future.length > 0,
+  canUndo: selectors.getPastActions(state.posts).length > 0,
+  canRedo: selectors.getFutureActions(state.posts).length > 0,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onUndo: () => dispatch(UndoActionCreators.undo()),
-  onRedo: () => dispatch(UndoActionCreators.redo()),
-})
+const mapDispatchToProps = {
+  onUndo: () => undo(),
+  onRedo: () => redo(),
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(UndoRedoBox)
 

@@ -1,4 +1,4 @@
-import undoable from 'redux-undo'
+import { createSelectors, undox } from 'undox'
 
 import {
   POST_REMOVE,
@@ -39,6 +39,7 @@ const postsReducer = (state = initState, action) => {
   }
 }
 
-const undoablePostsReducer = undoable(postsReducer)
+const undoablePostsReducer = undox(postsReducer)
+export const selectors = createSelectors(postsReducer)
 
 export default undoablePostsReducer
