@@ -17,10 +17,14 @@ const Post = ({ post, toggleLike, removePost }) => {
   return (
     <Container>
       <Button onClick={handleLike}>
-        {post.isLiked ? <Favorite /> : <FavoriteOutline />}
+        {post.isLiked ? (
+          <Favorite width={24} height={24} />
+        ) : (
+          <FavoriteOutline width={24} height={24} />
+        )}
       </Button>
       <Button onClick={handleRemove}>
-        <IconRemove />
+        <IconRemove width={24} height={24} />
       </Button>
       <Link title={post.title} permalink={post.permalink}></Link>
     </Container>
@@ -43,7 +47,6 @@ const Container = styled.article`
   font-size: 16px;
   height: 60px;
   padding: 10px;
-  transition: background-color 0.15s ease-in-out;
   width: 100%;
   &:hover {
     background-color: ${props => props.theme.highlight.weak};

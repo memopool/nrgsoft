@@ -1,5 +1,5 @@
-import SkipNext from '@vkontakte/icons/dist/28/skip_next'
-import SkipPrevious from '@vkontakte/icons/dist/28/skip_previous'
+import SkipNext from '@vkontakte/icons/dist/24/skip_next'
+import SkipPrevious from '@vkontakte/icons/dist/24/skip_previous'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -44,7 +44,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(UndoRedoBox)
 const Container = styled.section`
   background-color: ${props => props.theme.highlight.invisible};
   border-radius: 5px;
-  box-shadow: 0 0 0 1px ${props => props.theme.highlight.weak};
   display: flex;
   margin: 10px 0;
   padding: 10px;

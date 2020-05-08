@@ -42,17 +42,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.highlight.weak};
     border-radius: 0 5px 5px 0;
-    background-color: ${props => props.theme.highlight.weak}
   }
 
   ::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.default.invisible};
     border-radius: 0 5px 5px 0;
-    background-color: ${props => props.theme.default.invisible}
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: ${props => props.theme.default.semivisible}
+    background-color: ${props => props.theme.default.semivisible};
   }
 
   html {
@@ -60,12 +60,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
   body {
-    max-width: 100%;
-    overflow-x: hidden;
     background-color: ${props => props.theme.global.background};
     color: ${props => props.theme.global.text};
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 `
