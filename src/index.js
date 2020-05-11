@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 import { render } from 'react-dom'
+import { hot } from 'react-hot-loader/root'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+import { ThemeProvider } from 'styled-components/macro'
 
 import App from './App'
+import theme from './config/theme'
 import { persistor, store } from './store'
 
+const AppRoot = process.env.NODE_ENV === 'development' ? hot(App) : App
+
 render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <AppRoot />
+        </ThemeProvider>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 )
 

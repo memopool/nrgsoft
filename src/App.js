@@ -1,31 +1,24 @@
 import React from 'react'
-import { hot } from 'react-hot-loader/root'
-import styled, {
-  createGlobalStyle,
-  ThemeProvider,
-} from 'styled-components/macro'
+import styled, { createGlobalStyle } from 'styled-components/macro'
 
 import PostList from './components/PostList'
 import TickerList from './components/TickerList'
 import UndoRedoBox from './components/UndoRedoBox'
-import theme from './config/theme'
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyle />
       <Main>
         <TickerList />
         <UndoRedoBox />
         <PostList />
       </Main>
-    </ThemeProvider>
+    </>
   )
 }
 
-const AppRoot = process.env.NODE_ENV === 'development' ? hot(App) : App
-
-export default AppRoot
+export default App
 
 const Main = styled.main`
   display: flex;
@@ -37,6 +30,21 @@ const Main = styled.main`
 `
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: ${props => props.theme.global.background};
+    color: ${props => props.theme.global.text};
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   ::-webkit-scrollbar {
     width: 15px;
   }
@@ -53,19 +61,5 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background-color: ${props => props.theme.default.semivisible};
-  }
-
-  html {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  body {
-    background-color: ${props => props.theme.global.background};
-    color: ${props => props.theme.global.text};
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
-    margin: 0;
-    max-width: 100%;
-    overflow-x: hidden;
   }
 `
